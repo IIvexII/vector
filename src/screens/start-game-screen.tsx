@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Alert } from "react-native";
 
 import { Button } from "../components/button";
+import Title from "../components/title";
 
 type StartGameScreenProps = {
   onSetNumber: (number: number) => void;
@@ -44,13 +45,11 @@ export default function StartGameScreen(props: StartGameScreenProps) {
   return (
     <View className="flex-1 gap-8 justify-center items-center bg-transparent">
       {/* main heading of screen */}
-      <Text className="text-white text-3xl border-4 border-white p-4 rounded-xl">
-        Guess My Number
-      </Text>
+      <Title>Guess My Number</Title>
 
       {/* User Input Box */}
       <View className="bg-darkPlum px-8 py-8 justify-center items-center rounded-xl elevation-2xl">
-        <Text className="text-2xl text-orange-300">Enter Number</Text>
+        <Text className="text-2xl text-orange-200">Enter Number</Text>
         <TextInput
           className="w-[50] border-b-4 border-orange-300 text-orange-200 text-3xl mt-4 text-center"
           cursorColor={"orange"}
