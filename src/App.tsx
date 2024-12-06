@@ -33,7 +33,7 @@ export default function App() {
           <SafeAreaView className="flex-1">{screen}</SafeAreaView>
         </ImageBackground>
       </LinearGradient>
-      <StatusBar style="light" />
+      <StatusBar style="light" hidden /> {/* temprarily Hide the status bar */}
     </>
   );
 }

@@ -51,7 +51,7 @@ export default function StartGameScreen(props: StartGameScreenProps) {
       <View className="bg-darkPlum px-8 py-8 justify-center items-center rounded-xl elevation-2xl">
         <Text className="text-2xl text-orange-200">Enter Number</Text>
         <TextInput
-          className="w-[50] border-b-4 border-orange-300 text-orange-200 text-3xl mt-4 text-center"
+          className="w-[50] border-b-4 border-accent200 text-accent200 text-3xl mt-4 text-center"
           cursorColor={"orange"}
           keyboardType="number-pad"
           maxLength={2}

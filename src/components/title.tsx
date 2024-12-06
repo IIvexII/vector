@@ -4,13 +4,13 @@ import { cn } from "../lib/utils";
 
 type TitleProps = {
   className?: string;
-  children: React.ReactNode;
+  children: string;
 };
 export default function Title(props: TitleProps) {
   return (
     <Text
       className={cn(
-        "text-orange-200 text-3xl border-4 border-orange-200 p-4 rounded-xl",
+        "text-accent200 text-3xl border-4 border-accent200 p-4 rounded-xl",
         props.className
       )}
     >
