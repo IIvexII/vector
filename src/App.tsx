@@ -6,7 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import GameScreen from "./screens/game-screen";
 import StartGameScreen from "./screens/start-game-screen";
 
-import { ORANGE_COLOR, PLUM_COLOR } from "./constants/colors";
+import Colors from "./constants/colors";
 import { backgroundImage } from "./constants/images";
 
 import "./styles/global.css";
@@ -23,7 +23,10 @@ export default function App() {
 
   return (
     <>
-      <LinearGradient colors={[PLUM_COLOR, ORANGE_COLOR]} className="flex-1">
+      <LinearGradient
+        colors={[Colors.primary800, Colors.accent800]}
+        className="flex-1"
+      >
         <ImageBackground
           source={backgroundImage}
           className="flex-1"
@@ -33,7 +36,8 @@ export default function App() {
           <SafeAreaView className="flex-1">{screen}</SafeAreaView>
         </ImageBackground>
       </LinearGradient>
-      <StatusBar style="light" hidden /> {/* temprarily Hide the status bar */}
+      {/* FIXME: unhide the status bar */}
+      <StatusBar style="light" hidden />
     </>
   );
 }
