@@ -4,7 +4,7 @@ import { Alert, View } from "react-native";
 import Title from "../components/ui/title";
 import Box from "../components/ui/box";
 import { gnRandomNum } from "../lib/utils";
-import { Button } from "../components/ui/button";
+import { Button } from "../components/ui/primary-button";
 
 type GameScreenProps = {
   userChoice: number;

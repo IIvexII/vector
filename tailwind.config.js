@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./src/*.{js,jsx,ts,tsx}", // Include files in the src folder
     "./src/screens/*.{js,jsx,ts,tsx}", // Include files in nested directories
+    "./src/screens/**/*.{js,jsx,ts,tsx}", // Include files in nested directories
     "./src/components/*.{js,jsx,ts,tsx}", // Include files in deeply nested directories
     "./src/components/**/*.{js,jsx,ts,tsx}", // Include files in deeply nested directories
   ],

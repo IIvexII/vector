@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, Alert } from "react-native";
 
-import { Button } from "../components/ui/button";
+import { Button } from "../components/ui/primary-button";
 import Title from "../components/ui/title";
 import Box from "../components/ui/box";
 
