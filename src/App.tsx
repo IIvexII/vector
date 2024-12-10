@@ -23,19 +23,14 @@ export default function App() {
 
   return (
     <>
-      <LinearGradient
-        colors={[Colors.primary800, Colors.accent800]}
+      <ImageBackground
+        source={backgroundImage}
         className="flex-1"
+        imageClassName="opacity-15"
+        resizeMode="cover"
       >
-        <ImageBackground
-          source={backgroundImage}
-          className="flex-1"
-          imageClassName="opacity-15"
-          resizeMode="cover"
-        >
-          <SafeAreaView className="flex-1">{screen}</SafeAreaView>
-        </ImageBackground>
-      </LinearGradient>
+        <SafeAreaView className="flex-1">{screen}</SafeAreaView>
+      </ImageBackground>
       {/* FIXME: unhide the status bar */}
       <StatusBar style="light" hidden />
     </>
