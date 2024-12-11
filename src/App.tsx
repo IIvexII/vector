@@ -32,7 +32,7 @@ export default function App() {
       </ImageBackground>
 
       {/* status bar configurations */}
-      <StatusBar style="dark" />
+      <StatusBar style="dark" hidden />
     </>
   );
 }

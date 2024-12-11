@@ -97,7 +97,7 @@ export default function GameScreen(props: GameScreenProps) {
             <FontAwesome5 name="skull" size={20} color="black" />
 
             <Text className="">
-              You only have X chances of wrong hints left.
+              You only have 5 chances of wrong hints left.
             </Text>
           </View>
         </InfoBox>
