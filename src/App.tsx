@@ -2,36 +2,37 @@ import { useEffect, useState } from "react";
 import { ImageBackground } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
 
-import GameScreen from "./screens/game-screen";
+import OnboardingScreen from "./screens/onboarding-screen";
 import StartGameScreen from "./screens/start-game-screen";
-import Scene1 from "./screens/onboarding-screen/scene-1";
+
+import { useFonts } from "./hooks/useFonts";
 
 import { backgroundImage } from "./constants/images";
+import * as Fonts from "./constants/fonts";
+import Colors from "./constants/colors";
 
 import "./styles/global.css";
-import OnboardingScreen from "./screens/onboarding-screen";
-
-// Prevent the splash screen from hiding
-SplashScreen.preventAutoHideAsync();
+import GameScreen from "./screens/game-screen";
+import GameOverScreen from "./screens/game-over-screen";
 
 export default function App() {
-  const [loaded, error] = useFonts({
-    "Fira-Mono": require("../assets/fonts/FiraMono-Regular.ttf"),
-  });
+  useFonts("Fira-Mono", Fonts.FiraMono);
+  const [startGame, setStartGame] = useState(false);
+  const [screen, setScreen] = useState(
+    <OnboardingScreen onStartGame={() => setStartGame(true)} />
+  );
 
-  // Hide the splash screen when the app is loaded
+  // show the start game screen after onboarding screen is done
   useEffect(() => {
-    if (loaded || error) {
-      SplashScreen.hideAsync();
+    if (startGame) {
+      setScreen(
+        <StartGameScreen
+          changeScreen={(screen: React.JSX.Element) => setScreen(screen)}
+        />
+      );
     }
-  }, [loaded, error]);
-
-  if (!loaded && !error) {
-    return null;
-  }
+  }, [startGame]);
 
   return (
     <>
@@ -42,11 +43,12 @@ export default function App() {
         resizeMode="stretch"
       >
         <SafeAreaView className="flex-1">
-          <OnboardingScreen />
+          <GameOverScreen />
         </SafeAreaView>
       </ImageBackground>
-      {/* FIXME: unhide the status bar */}
-      <StatusBar style="light" hidden />
+
+      {/* status bar configurations */}
+      <StatusBar style="dark" backgroundColor={Colors.seconday} />
     </>
   );
 }

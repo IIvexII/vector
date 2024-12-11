@@ -1,70 +1,73 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Alert } from "react-native";
+import { View, Alert, TextInput } from "react-native";
 
-import { Button } from "../components/ui/primary-button";
-import Title from "../components/ui/title";
-import Box from "../components/ui/box";
+import InfoBox from "../components/ui/info-box";
+import Robot from "../components/ui/robot";
+import TextBold from "../components/ui/text-bold";
+import PrimaryButton from "../components/ui/primary-button";
+import GameScreen from "./game-screen";
+import { FlatList } from "react-native-reanimated/lib/typescript/Animated";
 
 type StartGameScreenProps = {
-  onSetNumber: (number: number) => void;
+  changeScreen: (screen: React.JSX.Element) => void;
 };
 
 export default function StartGameScreen(props: StartGameScreenProps) {
-  const [userInput, setUserInput] = useState("");
+  // const [userInput, setUserInput] = useState("");
 
   /**
    * Reset the input value to empty string
    * when the user press the reset button
    */
-  function resetInputHandler() {
-    setUserInput("");
-  }
+  // function resetInputHandler() {
+  //   setUserInput("");
+  // }
 
   /**
    * Show an alert when the user input is invalid
    * and the user press the confirm button
    */
-  function confirmInputHandler() {
-    // validate the user input
-    if (isNaN(+userInput) || +userInput < 1 || +userInput > 99) {
-      Alert.alert(
-        "Issue with Number Field",
-        "Number has to be a number between 1 and 99.",
-        [
-          {
-            text: "Okay",
-            onPress: resetInputHandler,
-          },
-        ]
-      );
-    }
+  // function confirmInputHandler() {
+  //   // validate the user input
+  //   if (isNaN(+userInput) || +userInput < 1 || +userInput > 99) {
+  //     Alert.alert(
+  //       "Issue with Number Field",
+  //       "Number has to be a number between 1 and 99.",
+  //       [
+  //         {
+  //           text: "Okay",
+  //           onPress: resetInputHandler,
+  //         },
+  //       ]
+  //     );
+  //   }
 
-    // set the user input to the parent component
-    props.onSetNumber(+userInput);
+  //   // set the user input to the parent component
+  //   props.onSetNumber(+userInput);
+  // }
+
+  function gotoGameScreen() {
+    props.changeScreen(<GameScreen userChoice={20} />);
   }
 
   return (
-    <View className="flex-1 gap-8 justify-center items-center bg-transparent">
-      {/* Heading of the screen */}
-      <Title text="Guess My Number" />
-
-      {/* User Input Box */}
-      <Box className="justify-center items-center">
-        <Text className="text-2xl text-orange-200">Enter Number</Text>
+    <View>
+      <View className="flex-row justify-center items-center mt-14">
+        <Robot text="Waiting.." />
+      </View>
+      <InfoBox className="mt-[54px] mx-[40px] gap-2 py-6">
+        <TextBold>Think of a number?</TextBold>
         <TextInput
-          className="w-[50] border-b-4 border-accent200 text-accent200 text-3xl mt-4 text-center"
-          cursorColor={"orange"}
           keyboardType="number-pad"
-          maxLength={2}
-          value={userInput}
-          onChangeText={setUserInput}
+          placeholder="Number here..."
+          className="border border-[#BCBCBC] rounded-full bg-white px-8 pt-4 pb-2 font-[Fira-Mono] text-xl"
         />
-        {/* Buttons */}
-        <View className="flex-row gap-6 mt-8">
-          <Button onPress={resetInputHandler}>Reset</Button>
-          <Button onPress={confirmInputHandler}>Confirm</Button>
-        </View>
-      </Box>
+
+        {/* FIXME: pass the dynamic number */}
+        <PrimaryButton onPress={gotoGameScreen} className="self-start mt-2">
+          Done
+        </PrimaryButton>
+      </InfoBox>
     </View>
   );
 }

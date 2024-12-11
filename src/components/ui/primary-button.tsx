@@ -12,18 +12,20 @@ type PrimaryButtonProps = {
 
 export default function PrimaryButton(props: PrimaryButtonProps) {
   return (
-    <View
-      className={cn(
-        "rounded-full overflow-hidden self-center",
-        props.className
-      )}
-    >
+    <View className="overflow-hidden rounded-full">
       <Pressable
-        className="bg-primary px-8 py-2 active:opacity-70"
-        android_ripple={{ color: COLORS.primary }}
+        className={cn(
+          " self-center bg-primary h px-8 py-2 active:opacity-80 rounded-full",
+          props.className
+        )}
         onPress={props.onPress}
       >
-        <Text className={cn("text-white text-xl", props.textClassName)}>
+        <Text
+          className={cn(
+            "text-white text-xl font-[Fira-Mono]",
+            props.textClassName
+          )}
+        >
           {props.children}
         </Text>
       </Pressable>
