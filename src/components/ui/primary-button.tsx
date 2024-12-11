@@ -1,6 +1,5 @@
 import React from "react";
 import { Text, Pressable, View } from "react-native";
-import COLORS from "../../constants/colors";
 import { cn } from "../../lib/utils";
 
 type PrimaryButtonProps = {

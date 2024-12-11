@@ -1,17 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ImageBackground } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import OnboardingScreen from "./screens/onboarding-screen";
-import StartGameScreen from "./screens/start-game-screen";
-import GameOverScreen from "./screens/game-over-screen";
 
 import { useFonts } from "./hooks/useFonts";
 
 import { backgroundImage } from "./constants/images";
 import * as Fonts from "./constants/fonts";
-import Colors from "./constants/colors";
 
 import "./styles/global.css";
 
@@ -35,7 +32,7 @@ export default function App() {
       </ImageBackground>
 
       {/* status bar configurations */}
-      <StatusBar style="dark" backgroundColor={Colors.seconday} />
+      <StatusBar style="dark" />
     </>
   );
 }
