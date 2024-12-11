@@ -3,15 +3,18 @@ import { Alert, FlatList, View } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
-import { gnRandomNum } from "../lib/utils";
 import Robot from "../components/ui/robot";
 import InfoBox from "../components/ui/info-box";
 import TextBold from "../components/ui/text-bold";
 import PrimaryButton from "../components/ui/primary-button";
 import Text from "../components/ui/text";
 
+import { gnRandomNum } from "../lib/utils";
+import GameOverScreen from "./game-over-screen";
+
 type GameScreenProps = {
   userChoice: number;
+  changeScreen: (screen: React.JSX.Element) => void;
 };
 
 let minNumber = 1;
@@ -21,8 +24,7 @@ export default function GameScreen(props: GameScreenProps) {
   const [currentGuess, setCurrentGuess] = useState<number>(
     gnRandomNum(minNumber, maxNumber)
   );
-
-  const guesses = [20, 30, 54, 90, 80, 34, 53, 23, 53];
+  const [guesses, setGuesses] = useState<number[]>([]);
 
   /**
    * handle the hint giving mechanism to the machine.
@@ -48,8 +50,12 @@ export default function GameScreen(props: GameScreenProps) {
   // check if the machine has guessed it correctly
   useEffect(() => {
     if (currentGuess === props.userChoice) {
-      Alert.alert("Congraturations to me!", "I have guessed it right.");
+      // change screen to game over screen
+      props.changeScreen(<GameOverScreen changeScreen={props.changeScreen} />);
     }
+
+    // add the current guess to the guesses list
+    setGuesses((prev) => [currentGuess, ...prev]);
   }, [currentGuess]);
 
   return (

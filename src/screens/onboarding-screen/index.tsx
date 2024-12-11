@@ -7,9 +7,10 @@ import Scene2 from "./scene-2";
 
 import * as Icons from "../../constants/icons";
 import { cn } from "../../lib/utils";
+import StartGameScreen from "../start-game-screen";
 
 type OnboardingScreenProps = {
-  onStartGame: () => void;
+  changeScreen: (screen: React.JSX.Element) => void;
 };
 
 export default function OnboardingScreen(props: OnboardingScreenProps) {
@@ -17,10 +18,14 @@ export default function OnboardingScreen(props: OnboardingScreenProps) {
 
   const scenes = [<Scene1 />, <Scene2 />];
 
+  function startGame() {
+    props.changeScreen(<StartGameScreen changeScreen={props.changeScreen} />);
+  }
+
   let renderButton;
   if (currentScene === scenes.length - 1) {
     renderButton = (
-      <PrimaryButton className="mt-8" onPress={props.onStartGame}>
+      <PrimaryButton className="mt-8 px-6 pt-3 pb-2" onPress={startGame}>
         <Text className="flex-row justify-center items-center">
           Get Started
         </Text>
@@ -28,9 +33,9 @@ export default function OnboardingScreen(props: OnboardingScreenProps) {
     );
   } else {
     renderButton = (
-      <PrimaryButton className="mt-8" onPress={handleNext}>
+      <PrimaryButton className="mt-[30px] px-6 pt-3 pb-2" onPress={handleNext}>
         <Text className="flex-row justify-center items-center">
-          Next{"  "} <Image source={Icons.rightArrow} className="h-3 w-8" />
+          Next <Image source={Icons.rightArrow} className="h-3 w-6" />
         </Text>
       </PrimaryButton>
     );

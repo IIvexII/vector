@@ -1,4 +1,4 @@
-import { Alert, FlatList, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import Robot from "../components/ui/robot";
 import InfoBox from "../components/ui/info-box";
@@ -7,14 +7,20 @@ import PrimaryButton from "../components/ui/primary-button";
 import { dancingRobotImg } from "../constants/images";
 import { Image } from "expo-image";
 import AntDesign from "@expo/vector-icons/AntDesign";
-
-let minNumber = 1;
-let maxNumber = 100;
+import StartGameScreen from "./start-game-screen";
 
 const blurhash =
   "|bGIr|~qt7RPM_RjRjV@Rj^%%2V@WBaxaxWBWBWBSiafV[bHofoekBbHayf+WAR*j[ayj]fkj[j[n$R*WBo1WCWVWBofkCofj[oLkBWCWBWBj]j[f,jZjuWVaxayWVfPjsjFaya|aejsbHf6ayayaekCkBayfkayaeWBWV";
 
-export default function GameOverScreen() {
+type GameScreenProps = {
+  changeScreen: (screen: React.JSX.Element) => void;
+};
+
+export default function GameOverScreen(props: GameScreenProps) {
+  function tryAgain() {
+    props.changeScreen(<StartGameScreen changeScreen={props.changeScreen} />);
+  }
+
   return (
     <View>
       <View className="flex-row justify-center items-center mt-14">
@@ -36,7 +42,7 @@ export default function GameOverScreen() {
           </View>
         </InfoBox>
 
-        <PrimaryButton className="mt-[62] pt-3">
+        <PrimaryButton onPress={tryAgain} className="mt-[62] pt-3">
           <AntDesign name="reload1" size={20} color="white" className="" /> Try
           Again
         </PrimaryButton>
