@@ -17,3 +17,9 @@ Are you ready to help train Vector and have some fun along the way? Let the gues
   <img src="https://github.com/user-attachments/assets/9e6fb762-432e-4acf-8c8d-decda33982ac" alt="Screenshot 3" width="150"/>
   <img src="https://github.com/user-attachments/assets/0bb9644f-af70-41f4-aecd-398d7958c7d4" alt="Screenshot 1" width="150"/>
 </p>
+
+## Design
+
+<a href="https://www.figma.com/design/VDc3du3jGHCwi91mINKCsb/Vector?node-id=18-875&t=61idP3XuQ3hR0sln-1">
+<img src="https://th.bing.com/th?id=OIP.nnlswlldP0Zbk-8plZtgagHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" alt="figma" width="50"/>
+</a>
