@@ -10,7 +10,7 @@ Vector's extraordinary abilities need training, and like any brilliant mind, Vec
 
 The citizens of NEXIM City know this all too well. After the *Great Robot Rebellion of 2147*, the city council passed the infamous **ACT 876**:
 
-> *"It is hereby declared the solemn duty of all humans to ensure the entertainment and mental well-being of robots within the jurisdiction of NEXIM City. Failure to comply with this mandate shall result in penalties, including but not limited to a term of* **imprisonment not exceeding five (5) years**."
+> *"It is hereby declared the solemn duty of all humans to ensure the entertainment and mental well-being of robots within the jurisdiction of NEXIM City. Failure to comply with this mandate shall result in penalties, including but not limited to a term of imprisonment not exceeding five (5) years."*
 
 **Your mission?** Think of a number—any number between 1 and 99—and watch as Vector attempts to pierce through the veil of your thoughts. Give Vector hints, test its deductive powers, and witness artificial intelligence at work. With each guess, Vector learns. With each game, Vector grows stronger.
 
